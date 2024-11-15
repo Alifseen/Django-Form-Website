@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import ApplicationForm
 from .models import Forms
 from django.contrib import messages
+from django.core.mail import EmailMessage
 
 def index(request):
     if request.method == "POST":
@@ -15,6 +16,21 @@ def index(request):
 
             ## Import the database model and set form values to column names
             Forms.objects.create(fname=first_name,lname=last_name,email=email,date=date,occupation=occupation)
+
+            ## Send email
+            body_text = f"""\
+            This is just a confirmation:
+            Your Submission Details are:
+            {first_name}
+            {last_name}
+            {email}
+            {occupation}
+            {date}\
+            """
+
+            email = EmailMessage("Form Submitted", body_text, to=[email])
+
+            email.send()
 
             ## Display message on success
             messages.success(request,f"Form Submitted Successfully, Thank you {first_name}")
