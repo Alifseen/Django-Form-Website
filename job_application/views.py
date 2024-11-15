@@ -36,3 +36,9 @@ def index(request):
             messages.success(request,f"Form Submitted Successfully, Thank you {first_name}")
 
     return render(request, "index.html")  ## This looks for a folder called "templates" and then searchs for the file name inside it.
+
+def about(request):
+    return render(request,"about.html")
+
+def contact(request):
+    return render(request,"contact.html")
