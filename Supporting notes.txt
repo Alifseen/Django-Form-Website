@@ -50,6 +50,6 @@ to connect a page to url, create a url.py file, and
 from django.urls import path
 from . import views (. means same directory)
 
-urlpatterns =[path("urlpath", views.fucntion, name="heml file name"]
+urlpatterns =[path("urlpath", views.fucntion, name="html file name"]
 
 add path("", include("appfolder.urls")) to the urls file in mysite directory. Be sure to import include
