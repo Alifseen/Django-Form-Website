@@ -53,3 +53,58 @@ from . import views (. means same directory)
 urlpatterns =[path("urlpath", views.fucntion, name="html file name"]
 
 add path("", include("appfolder.urls")) to the urls file in mysite directory. Be sure to import include
+
+
+
+
+
+
+From Flask App index HTML Only change:
+1. remove jinja context manager "get_flasked"
+2. for post method add below the line (% csrf_token %)
+
+
+
+in the index view function, get form values
+request.method == "POST" conditional
+
+create forms.py in same dir as views
+
+django forms
+class ApplicationForm(forms.Form)
+same as db models code. change models to forms
+
+in view function
+import . from forms.ApplicationForm
+form = class(request.POST)
+fname etc = form.cleaned_data["Key"]  this creates a dictionary with the value of whatever html name attribute matches the key.
+
+execute the fname etc code in if form.is_valid() conditional
+
+
+
+
+
+models import Form
+Form.object.create(db column name = "data variable name in view function")
+
+
+django.contrib import messages
+meesages.successs(request, message)
+
+
+
+setup email
+django.code.mail import EmailMessage
+
+message_body=
+email = EmailMessage(subject, body, to=[])
+email.send()
+
+update email credentials in settings.py
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = smtp.gmail.com
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USER = alifseen@gmail.com
+EMAIL_PASS = glmxacevprpgxyqk
