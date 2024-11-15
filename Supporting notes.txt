@@ -108,3 +108,63 @@ EMAIL_PORT = 587
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = alifseen@gmail.com
 EMAIL_HOST_PASSWORD = glmxacevprpgxyqk
+
+
+
+
+admin interface using admin.py
+.models Forms
+admin.site.register(Form)
+
+create superuser
+python manage.py createsuperuser
+add user name, email and password
+Login using this info with URL/admin
+
+
+
+
+change view of the forms
+class FormsAdmin(admin.ModelAdmin)
+list_display = display name, email, occupation
+Search_fields = search by name or email
+list_filter = filter by date or occupation
+ordering = - for descending
+readonly_fields = not editable
+
+admin.site.register(Form, Formsamdin)
+
+
+Creating a base template
+
+create a copy of index.html and name it base.html
+then create a new html about us
+index and about us, delete everything from body to top and body to end, including body tags and div container and scripts
+in base.html keep everything you deleted in other files and delete the rest. in the main container div type:
+{% block content %}
+{% endblock %}
+
+
+connect html files base.html
+
+at top {% extend 'base.html' %}
+start with {% block content %}
+end with {% endblock %}
+
+view function for about page
+url path
+
+
+
+add nav bar to base
+nav tag
+div tag
+a href={% url 'index' %}> pythonhow
+button
+span
+div
+ul
+li
+a about
+li
+a contact
