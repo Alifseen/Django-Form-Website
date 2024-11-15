@@ -46,7 +46,7 @@ returns render(request, "html file")
 
 First go to settings and add path to the folder which will contain the HTML Files. if not specified, simply create a folder called "templates" in the app folder and store the HTML there
 
-to connect a page to url, create a url.py file, and
+to connect a page to url, create a urls.py file, and
 from django.urls import path
 from . import views (. means same directory)
 
