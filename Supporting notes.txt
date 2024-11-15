@@ -85,7 +85,7 @@ execute the fname etc code in if form.is_valid() conditional
 
 
 
-models import Form
+models import Forms
 Form.object.create(db column name = "data variable name in view function")
 
 

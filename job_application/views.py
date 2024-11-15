@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import ApplicationForm
+from .models import Forms
 
 def index(request):
     if request.method == "POST":
@@ -10,5 +11,9 @@ def index(request):
             email = form.cleaned_data["email"]
             date = form.cleaned_data["date"]
             occupation = form.cleaned_data["occupation"]
+
+            ## Import the database model and set form values to column names
+            Forms.objects.create(fname=first_name,lname=last_name,email=email,date=date,occupation=occupation)
+
 
     return render(request, "index.html")  ## This looks for a folder called "templates" and then searchs for the file name inside it.
