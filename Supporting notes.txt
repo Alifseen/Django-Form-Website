@@ -147,7 +147,7 @@ in base.html keep everything you deleted in other files and delete the rest. in 
 
 connect html files base.html
 
-at top {% extend 'base.html' %}
+at top {% extends 'base.html' %}
 start with {% block content %}
 end with {% endblock %}
 
