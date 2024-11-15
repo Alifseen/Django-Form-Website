@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    return render(request, "index.html")  ## This looks for a folder called "templates" and then searchs for the file name inside it.
